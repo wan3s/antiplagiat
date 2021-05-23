@@ -2,7 +2,6 @@ import argparse
 
 import analize_doc
 import index_files
-import prepare_text
 
 from pprint import pprint
 
