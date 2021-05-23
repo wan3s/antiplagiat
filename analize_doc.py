@@ -10,7 +10,7 @@ from exceptions import IncorrectPath
 def prepare_doc(file_path):
     if not os.path.exists(file_path):
         raise IncorrectPath(
-            f'Path {dir_path} dosn\'t exist'
+            f'Path {file_path} dosn\'t exist'
         )
 
     with open(file_path, 'r') as input_file:
