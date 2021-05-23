@@ -30,4 +30,4 @@ def count_unique(file_shingles):
             plagiated_shingles.add(shingle)
             plagiated_files.add(collection_file)
 
-    return len(plagiated_shingles) / len(file_shingles), plagiated_files
+    return (1 - len(plagiated_shingles) / len(file_shingles)), plagiated_files

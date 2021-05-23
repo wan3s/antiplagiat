@@ -31,9 +31,11 @@ def main():
     if args.check:
         for file_to_check_path in args.check:
             print(f'checking {file_to_check_path}...')
+            file_shingles = analize_doc.prepare_doc(file_to_check_path)
             uniqueness, plagiated_files = analize_doc.count_unique(file_shingles)
             print(f'Процент оригинальности: {uniqueness * 100}%')
-            print('Обнаружены заимстовования из следующих файлов: ')
+            if plagiated_files:
+                print('Обнаружены заимстовования из следующих файлов: ')
             for file_name in sorted(plagiated_files):
                 print(file_name)
 
