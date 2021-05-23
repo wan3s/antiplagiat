@@ -21,12 +21,13 @@ def prepare_doc(file_path):
     return shingles
 
 
-def count_unique(file_path):
-    file_shingles = prepare_doc(file_path)
+def count_unique(file_shingles):
     shingles_collection = index_files.load_shingles_collection()
-    dict_of_uniqueness = collections.defaultdict(int)
+    plagiated_shingles = set()
+    plagiated_files = set()
     for shingle in file_shingles:
         for collection_file in shingles_collection.get(shingle, {}):
-            dict_of_uniqueness[collection_file] += 1
+            plagiated_shingles.add(shingle)
+            plagiated_files.add(collection_file)
 
-    return dict_of_uniqueness
+    return len(plagiated_shingles) / len(file_shingles), plagiated_files
